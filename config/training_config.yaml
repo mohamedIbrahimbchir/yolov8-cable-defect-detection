@@ -1,0 +1,27 @@
+# YOLOv8 Training Configuration
+# Final version — optimized for cable crimping/stripping defect detection
+
+model: yolov8s.pt
+epochs: 150
+imgsz: 640
+batch: 32
+lr0: 0.005
+optimizer: auto
+patience: 50
+
+# Augmentation — intentionally minimal
+# Rotation, mixup, and copy_paste were disabled after testing showed
+# they degraded sertissage class performance (mAP 0.29 → 0.62 after removal)
+degrees: 0
+mixup: 0.0
+copy_paste: 0.0
+
+# Dataset
+# Update this path to your local dataset location
+data: /path/to/dataset/data.yaml
+
+# Classes
+# 0: sertissage_conforme
+# 1: sertissage_non_conforme
+# 2: denudage_conforme
+# 3: denudage_non_conforme
